@@ -1,0 +1,54 @@
+.container{
+    background-color: hsl(226, 25%, 17%);
+    justify-self: center;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 50px;
+    width: 58%;
+    border: 1px ; 
+    border-radius: 15px ;
+    margin-top: 25px;
+}
+.dark-mode-btn{
+    background-color:hsl(226, 11%, 37%, 0.585) ;
+    padding: 0;
+    border: 1px;
+    border-radius: 10px;
+    height: 35px;
+    width: 35px;
+
+} 
+.dark-mode-btn img{
+    height: 15px;
+    width: 15px;
+    
+
+}
+.logo{
+    color: white;
+}
+.nav-items{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 10px; 
+}
+
+@media (max-width:400px){
+    .image-logo{
+        width: 100px;
+
+    }
+    .dark-mode-btn img{
+        height: 13px;
+        width: 13px;
+        
+    
+    }
+    .dark-mode-btn{
+        height: 30px;
+        width: 30px;
+    } 
+}
+
