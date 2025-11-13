@@ -1,7 +1,7 @@
 import './Cards.css'
 import Card from './Card.jsx'
 import { useState, useEffect } from 'react'
-import logo from '../assets/images/logo-devlens.svg'
+
 
 const Cards = ({ lightBg, darkText, textColor, filterStateCard = 'all' }) => {
 
