@@ -13,7 +13,7 @@ const Active = ({ darkMode }) => {
     }
     useEffect(() => {
         getActiveData()
-    }, [])
+    }, [data])
     return (<>
         <Cards darkMode={darkMode} allData={data} />
     </>)

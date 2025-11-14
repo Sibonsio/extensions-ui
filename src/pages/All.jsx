@@ -15,7 +15,7 @@ const All = ({ darkMode }) => {
     }
     useEffect(() => {
         getAllData()
-    }, [])
+    }, [data])
     return (<>
         <Cards darkMode={darkMode} allData={data} />
     </>)

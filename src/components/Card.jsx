@@ -10,7 +10,7 @@ const Card = ({ logo, name, description, handleClick, id, lightBg, darkText, tex
                 </div>
             </div>
             <div className='card bottom'>
-                <button className={`remove btn ${lightBg} ${darkText}`} onClick={() => { handleClick(id, itemId) }}>Remove</button>
+                <button className={`remove btn ${lightBg} ${darkText}`} onClick={() => { handleClick(id) }}>Remove</button>
                 <button className={`toggle btn ${isActive ? `none` : `activeState`}`} onClick={() => toggleClick(id, isActive)}><div className='toggle-icon'></div></button>
             </div>
         </div>

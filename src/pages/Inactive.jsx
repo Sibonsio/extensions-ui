@@ -13,7 +13,7 @@ const Inactive = ({ darkMode }) => {
     }
     useEffect(() => {
         getInactiveData()
-    }, [])
+    }, [data])
     return (<>
         <Cards darkMode={darkMode} allData={data} />
     </>)
