@@ -1,0 +1,38 @@
+.form {
+    width: 400px;
+    margin-bottom: 20px;
+    margin-top: 20px;
+
+}
+
+.inputheading {
+    border: 1px solid rgb(214, 214, 214);
+    border-radius: 50px;
+    width: 80px;
+    text-align: center;
+    background-color: white;
+    color: black;
+    font-size: 10px;
+
+}
+
+.inputdes {
+    border: 1px solid rgb(214, 214, 214);
+    border-radius: 50px;
+    width: 90%;
+    text-align: center;
+    background-color: white;
+    color: black;
+    font-size: 10px;
+}
+
+.inputcontainer {
+    display: flex;
+    justify-content: space-between;
+    width: 90%;
+    margin-top: 20px;
+}
+
+.hidden {
+    display: none !important;
+}

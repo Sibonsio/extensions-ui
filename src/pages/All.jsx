@@ -3,6 +3,7 @@ import instance from '../config/axios.jsx'
 import { useState, useEffect } from 'react'
 
 
+
 const All = ({ darkMode }) => {
     const [data, setData] = useState([])
     const getAllData = async () => {

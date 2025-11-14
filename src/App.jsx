@@ -14,9 +14,11 @@ import All from './pages/All.jsx'
 
 
 
+
+
 const App = () => {
   const [state, setState] = useState(false);
-  const [toggleState, setToggleState] = useState(false);
+
 
   const handleClick = () => {
     setState(!state)
@@ -28,6 +30,7 @@ const App = () => {
   return (
 
     <>
+
       <Navbar handleClick={handleClick} darkMode={state} color={state ? `hsl(200, 60%, 99%)` : `hsl(226, 25%, 17%)`} value={state && `1px 1px 1px 1px hsl(0, 0%, 78%)`}
         logo={state} />
       <Header color={state && 'hsl(226, 25%, 17%)'} buttonStyle={state && 'color'} takeState={state} />
@@ -36,7 +39,6 @@ const App = () => {
         <Route path='/active' element={<Active darkMode={state} />} />
         <Route path='/inactive' element={<Inactive darkMode={state} />} />
       </Routes>
-
     </>
   )
 }
