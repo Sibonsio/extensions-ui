@@ -9,7 +9,7 @@ const Cards = ({ darkMode, allData }) => {
 
     const updatedCard = async (id, isActive) => {
         try {
-            const response = await instance.patch(`/update/${id}`, { isActive: isActive })
+            const response = await instance.patch(`/update/${id}`, { isActive })
         } catch (error) {
             console.log(error.message)
         }

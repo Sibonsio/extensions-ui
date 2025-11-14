@@ -18,11 +18,6 @@ const App = () => {
   const [state, setState] = useState(false);
   const [toggleState, setToggleState] = useState(false);
 
-
-
-
-
-
   const handleClick = () => {
     setState(!state)
     document.body.style.backgroundImage = state ? `linear-gradient(180deg, #040918 0%, #091540 100%)` : `linear-gradient(180deg, #EBF2FC 0%, #EEF8F9 100%)`
