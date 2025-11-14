@@ -4,7 +4,7 @@ import logo2 from '../assets/images/logo-copy.svg'
 import moon from '../assets/images/icon-moon.svg'
 import sun from '../assets/images/icon-sun.svg'
 const Navbar = ({ handleClick, darkMode, color, value, logo }) => {
-    console.log(logo)
+
 
     return (
         <div className='container' style={{ backgroundColor: color, boxShadow: value }}>

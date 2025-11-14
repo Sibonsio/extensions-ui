@@ -1,15 +1,18 @@
 import './App.css'
 import Navbar from './components/Navbar.jsx'
 import Header from './components/Header.jsx'
-import Cards from './components/Cards.jsx'
 import { useState } from 'react'
+import { Route, Routes } from 'react-router-dom'
+import Inactive from './pages/Inactive.jsx'
+import Active from './pages/Active.jsx'
+import All from './pages/All.jsx'
 
 
 
 
 const App = () => {
   const [state, setState] = useState(false);
-  const [buttonState, setButtonState] = useState('all');
+
 
 
 
@@ -20,24 +23,19 @@ const App = () => {
 
 
   }
-  const handleStateClick = (name) => {
-    if (name === 'all') {
-      setButtonState(name)
-    } else if (name === 'active') {
-      setButtonState(name)
-    } else if (name === 'inactive') {
-      setButtonState(name)
-    }
-
-  }
 
   return (
 
     <>
       <Navbar handleClick={handleClick} darkMode={state} color={state ? `hsl(200, 60%, 99%)` : `hsl(226, 25%, 17%)`} value={state && `1px 1px 1px 1px hsl(0, 0%, 78%)`}
         logo={state} />
-      <Header color={state && 'hsl(226, 25%, 17%)'} buttonStyle={state && 'color'} handleStateClick={handleStateClick} filter={buttonState} takeState={state} />
-      <Cards lightBg={state && 'lightBg'} darkText={state && `darkText`} textColor={state && `textColor`} filterStateCard={buttonState} />
+      <Header color={state && 'hsl(226, 25%, 17%)'} buttonStyle={state && 'color'} takeState={state} />
+      <Routes>
+        <Route path='/all' element={<All darkMode={state} />} />
+        <Route path='/active' element={<Active darkMode={state} />} />
+        <Route path='/inactive' element={<Inactive darkMode={state} />} />
+      </Routes>
+
     </>
   )
 }

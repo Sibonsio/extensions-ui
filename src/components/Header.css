@@ -1,10 +1,11 @@
-.title{
+.title {
     color: #ffffff;
     font-size: 1.2rem;
     height: 30px;
-    
+
 }
-.header-container{
+
+.header-container {
     justify-self: center;
     display: flex;
     justify-content: space-between;
@@ -15,51 +16,65 @@
     margin-top: 20px;
     margin-bottom: 20px;
 }
-.btn{
-    background-color:hsl(226, 25%, 17%) ;
+
+.btn {
+    background-color: hsl(226, 25%, 17%);
     color: #ffffff;
     border: 1px;
     border-radius: 20px;
     height: 30px;
     width: 70px;
     margin-right: 7px;
-    
+
 }
-.all{
+
+.all {
     width: 50px !important;
 }
-.inactive{
+
+.inactive {
     margin-right: 0 !important;
     width: 80px !important;
 }
 
-@media (max-width:1300px){
-    .header-container{
-       flex-direction: column;
+@media (max-width:1300px) {
+    .header-container {
+        flex-direction: column;
     }
-    .btn-container{
+
+    .btn-container {
         display: flex;
         justify-content: space-evenly;
         width: 100%;
     }
-    .title{
-       margin-top: 0;
-        
+
+    .title {
+        margin-top: 0;
+
     }
 
 }
-.color{
-    box-shadow: 1px 1px 1px 1px hsl(0, 0%, 78%) ;
-    background-color: hsl(200, 60%, 99%) ;
+
+.color {
+    box-shadow: 1px 1px 1px 1px hsl(0, 0%, 78%);
+    background-color: hsl(200, 60%, 99%);
     color: hsl(226, 25%, 17%);
 }
-.bg{
+
+.bg {
     background-color: hsl(3, 86%, 51%);
 }
-.dark-t{
+
+.dark-t {
     color: hsl(226, 25%, 17%);
 
 }
-.light-t{
-    color: hsl(200, 60%, 99%) ;
+
+.light-t {
+    color: hsl(200, 60%, 99%);
+}
+
+.link-items {
+    text-decoration: none;
+
 }

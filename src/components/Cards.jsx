@@ -1,54 +1,21 @@
 import './Cards.css'
 import Card from './Card.jsx'
-import data from '../data.json'
 import { useState, useEffect } from 'react'
+import instance from '../config/axios.jsx'
 
 
-const Cards = ({ lightBg, darkText, textColor, filterStateCard = 'all' }) => {
 
+const Cards = ({ darkMode, allData }) => {
+    const [showCard, setShowCard] = useState()
 
-    const [state, setState] = useState(false);
-    const [itemIndex, setItemIndex] = useState(null)
-    const [itemI, setItemI] = useState(null)
-    const [array, setArray] = useState(data)
-
-
-    const toggleClick = (id, isActive, itemId) => {
-        if (id === itemId) {
-            setState(!isActive)
-            setItemIndex(id)
-        }
+    const toggleClick = (id, isActive) => {
+        console.log(id, isActive)
     }
-    const handleClick = (id, itemId) => {
-        if (id === itemId) {
-            let newArray = array.filter((items) => {
-                if (items.id !== id) {
-                    return items
-                }
-            })
-
-            setArray(newArray)
-        }
-
-        console.log(id, itemId, itemI)
-
-    }
-
-
-    const generateCards = array.map((items, index) => {
-        if (filterStateCard === 'active' && items.isActive === true) {
-            return <Card key={items.id} itemId={items.id = index} isActive={items.id === itemIndex ? items.isActive = state : items.isActive} id={index} logo={items.logo} name={items.name} description={items.description} lightBg={lightBg} darkText={darkText} textColor={textColor} toggleClick={toggleClick} handleClick={handleClick} />
-
-        } else if (filterStateCard === 'inactive' && items.isActive === false) {
-            return <Card key={items.id} itemId={items.id = index} isActive={items.id === itemIndex ? items.isActive = state : items.isActive} id={index} logo={items.logo} name={items.name} description={items.description} lightBg={lightBg} darkText={darkText} textColor={textColor} toggleClick={toggleClick} handleClick={handleClick} />
-
-        } else if (filterStateCard === 'all') {
-            return <Card key={items.id} itemId={items.id = index} isActive={items.id === itemIndex ? items.isActive = state : items.isActive} id={index} logo={items.logo} name={items.name} description={items.description} lightBg={lightBg} darkText={darkText} textColor={textColor} toggleClick={toggleClick} handleClick={handleClick} />
-        }
-
-
+    const showAllCards = allData.map((card) => {
+        return <Card key={card._id} lightBg={darkMode && 'lightBg'} darkText={darkMode && 'darkText'} textColor={darkMode && 'textColor'} name={card.name} description={card.description} logo={card.logo} isActive={card.isActive} id={card._id} toggleClick={toggleClick} />
     })
-    return (<div className='grid-container'>{generateCards}</div>)
+
+    return (<div className='grid-container'>{showAllCards}</div>)
 
 }
 export default Cards

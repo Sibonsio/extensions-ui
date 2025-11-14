@@ -1,5 +1,5 @@
-import './Card.css'
-const Card = ({ logo, name, description, handleClick, id, lightBg, darkText, textColor, toggleClick, isActive, itemId }) => {
+import '../components/Card.css'
+const Card = ({ logo, name, description, handleClick, id, lightBg, darkText, textColor, toggleClick, isActive }) => {
     return (
         <div className={`card-container ${lightBg}`}>
             <div className='card top'>
@@ -11,7 +11,7 @@ const Card = ({ logo, name, description, handleClick, id, lightBg, darkText, tex
             </div>
             <div className='card bottom'>
                 <button className={`remove btn ${lightBg} ${darkText}`} onClick={() => { handleClick(id, itemId) }}>Remove</button>
-                <button className={`toggle btn ${isActive ? `none` : `activeState`}`} onClick={() => toggleClick(id, isActive, itemId)}><div className='toggle-icon'></div></button>
+                <button className={`toggle btn ${isActive ? `none` : `activeState`}`} onClick={() => toggleClick(id, isActive)}><div className='toggle-icon'></div></button>
             </div>
         </div>
     )
