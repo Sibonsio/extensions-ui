@@ -11,13 +11,11 @@ import All from './pages/All.jsx'
 
 
 
-
-
-
-
-
 const App = () => {
   const [state, setState] = useState(false);
+
+
+
 
 
   const handleClick = () => {
@@ -35,7 +33,7 @@ const App = () => {
         logo={state} />
       <Header color={state && 'hsl(226, 25%, 17%)'} buttonStyle={state && 'color'} takeState={state} />
       <Routes>
-        <Route path='/all' element={<All darkMode={state} />} />
+        <Route path='/' element={<All darkMode={state} />} />
         <Route path='/active' element={<Active darkMode={state} />} />
         <Route path='/inactive' element={<Inactive darkMode={state} />} />
       </Routes>

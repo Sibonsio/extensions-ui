@@ -1,25 +1,27 @@
 import axios from 'axios'
 import './CreateCard.css'
-import { useState } from 'react'
-import instance from '../config/axios'
+import { useState, useEffect } from 'react'
+import instance from '../config/axios.jsx'
 
-const CreateCard = ({ handleClick, lightBg, darkText, textColor, hidden }) => {
+
+const CreateCard = ({ lightBg, darkText, textColor, hidden }) => {
     const [isForm, setForm] = useState({
-        logo: '',
+        image: '',
         name: '',
         desciption: '',
         isActive: '',
     })
+    const [data, setData] = useState({})
     const [isActive, setActive] = useState(false)
     const handleChange = (e) => {
         const placeholder = e.target.placeholder
-        const image = e.target.files
+        const imageFile = e.target.files
         const name = e.target.name
         const value = e.target.value
         if (placeholder === 'name') {
             setForm((prev) => {
                 return {
-                    logo: prev.logo,
+                    image: prev.image,
                     name: value,
                     desciption: prev.desciption,
                     isActive: prev.isActive,
@@ -29,7 +31,7 @@ const CreateCard = ({ handleClick, lightBg, darkText, textColor, hidden }) => {
         } if (placeholder === 'description') {
             setForm((prev) => {
                 return {
-                    logo: prev.logo,
+                    image: prev.image,
                     name: prev.name,
                     desciption: value,
                     isActive: prev.isActive,
@@ -39,41 +41,53 @@ const CreateCard = ({ handleClick, lightBg, darkText, textColor, hidden }) => {
         } if (name === 'image') {
             setForm((prev) => {
                 return {
-                    logo: image,
+                    image: imageFile,
                     name: prev.name,
                     desciption: prev.desciption,
                     isActive: prev.isActive,
                 }
 
             })
-        } if (isActive === true || isActive === false) {
+        } if (placeholder === 'isActive') {
             setForm((prev) => {
                 return {
-                    logo: prev.logo,
+                    image: prev.image,
                     name: prev.name,
                     desciption: prev.desciption,
-                    isActive: isActive,
+                    isActive: value,
                 }
 
             })
         }
 
+
     }
-    const toggleClick = () => {
-        setActive(!isActive)
+
+    const createCard = async () => {
+        try {
+            const response = await instance.post('/create', data)
+        } catch (error) {
+            console.log(error.message)
+        }
     }
+    const handleSubmit = (e) => {
+        e.preventDefault()
+        createCard()
+        setData(isForm)
+    }
+
     return (
-        <form method='POST' className={`${hidden && 'hidden'} card-container form ${lightBg}`} encType='multipart/form-data'>
+        <form method='post' className={`${hidden && 'hidden'} card-container form ${lightBg}`} encType='multipart/form-data' >
             <div className='inputcontainer'>
                 <input className='input-image' onChange={handleChange} type='file' name='image' accept='image/*' />
                 <div className='inputcontent'>
-                    <input className={`inputheading ${darkText}`} onChange={handleChange} id='top-card-heading' type='text' placeholder='name' />
+                    <input className={`inputheading ${darkText}`} onChange={handleChange} id='top-card-heading' type='text' placeholder='name' value={isForm.name} />
                 </div>
             </div>
-            <input className={`inputdes ${textColor}`} onChange={handleChange} id='top-card-paragraph' type='text' placeholder='description' />
+            <input className={`inputdes ${textColor}`} onChange={handleChange} id='top-card-paragraph' type='text' placeholder='description' value={isForm.desciption} />
             <div className='card bottom'>
-                <button className={`remove btn ${lightBg} ${darkText}`} onClick={() => { handleClick(id) }} type='submit'>Submit</button>
-                <button className={`toggle btn ${isActive ? `none` : `activeState`}`} onClick={toggleClick} name='isActive' type='button'><div className='toggle-icon' ></div></button>
+                <button className={`remove btn ${lightBg} ${darkText}`} onClick={handleSubmit} type='submit'>Submit</button>
+                <input className={`inputheading ${darkText}`} onChange={handleChange} id='top-card-heading' type='text' placeholder='isActive' value={isForm.isActive} />
             </div>
         </form>
     )
