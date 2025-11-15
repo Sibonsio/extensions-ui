@@ -23,15 +23,9 @@ const Active = ({ darkMode }) => {
 
     const toggleClick = (id, isActive) => {
         updatedCard(id, isActive)
-
-
     }
     const handleClick = (id) => {
         deleteCard(id)
-
-
-
-
     }
     const getActiveData = async () => {
         try {

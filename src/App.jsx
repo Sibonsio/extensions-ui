@@ -6,6 +6,7 @@ import { Route, Routes } from 'react-router-dom'
 import Inactive from './pages/Inactive.jsx'
 import Active from './pages/Active.jsx'
 import All from './pages/All.jsx'
+import Create from './pages/Create.jsx'
 
 
 
@@ -36,6 +37,7 @@ const App = () => {
         <Route path='/' element={<All darkMode={state} />} />
         <Route path='/active' element={<Active darkMode={state} />} />
         <Route path='/inactive' element={<Inactive darkMode={state} />} />
+        <Route path='/create' element={<Create darkMode={state} />} />
       </Routes>
     </>
   )
